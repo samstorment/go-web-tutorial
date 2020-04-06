@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: lightcoral;
+    padding: 10px;
+}
+
+.navbar #home {
+    padding-left: 0px;
+}
+
+.navbar h1 {
+    margin-right: auto;
+}
+
+.navbar a {
+    margin: 0px 5px;
+}
+
+.update {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gray;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+
+.update-text, .submit-button {
+    background-color: lightcyan;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.update-text {
+    margin-right: 20px;
+    resize: vertical;
+}
+
+main {
+    min-width: 500px;
+    max-width: 700px;
+    justify-content: center;
+}

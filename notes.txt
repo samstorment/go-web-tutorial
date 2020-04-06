@@ -1,0 +1,7 @@
+REDIS
+-----------------------
+> redis-cli                     // opens the redis command line interface
+> keys *                        // shows all of your redis keys
+> flushdb                       // deletes everything. DB reset
+> hget <keyname> <fieldname>    // this means -> return keyname[fieldname]
+> hgetall <keyname>             // shows all the info tied to that key hashmap

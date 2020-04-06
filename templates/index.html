@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+
+    
+    <main>
+        <div class="navbar">
+            <a id="home" href="/">Home</a>
+            <h1 class="heading">{{ .Title }}</h1>
+            <a href="/{{ .User }}">{{ .User }}</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+        {{ if .DisplayForm }}
+        <!-- If i want posts from the profile page to go back to the profile i can do <form action="#" ... > and I would have to make a post handler for the user in routes.go  -->
+        <form action="/" method="post">
+            <textarea class="update-text" name="update" rows="4"></textarea>
+            <div class="">
+                <button type="submit" class="submit-button">Post</button>
+            </div>
+        </form>
+        {{ end }}
+
+        <!-- range over the slice of Updates we passed to the struct in the indexGetHandler route -->
+        {{ range .Updates }}
+        <!-- For each value, create a div that contains the string --->
+        <div class="update">
+            <div>
+                <!-- For each update, get the user who wrote the update and get their username. Display their user name as <username> said: -->
+                <strong><a href="/{{ .GetUser.GetUsername }}">{{ .GetUser.GetUsername }}</a> said:</strong>
+            </div>
+            <!-- get the body of the update and display it in a div as a post -->
+            <div>{{ .GetBody }}</div>
+        </div>
+        {{ end }}
+    </main>
+</body>
+</html>
